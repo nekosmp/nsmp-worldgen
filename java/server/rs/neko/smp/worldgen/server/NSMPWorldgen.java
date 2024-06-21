@@ -4,14 +4,13 @@
 
 package rs.neko.smp.worldgen.server;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class NSMPWorldgen implements ModInitializer {
   public static final String MOD_ID = "nsmp-worldgen";

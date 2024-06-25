@@ -14,7 +14,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "rs.neko.smp.worldgen.server.NSMPWorldgen"
+      "rs.neko.smp.worldgen.Worldgen"
     ]
   },
   "depends": {

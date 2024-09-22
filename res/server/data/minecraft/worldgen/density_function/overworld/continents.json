@@ -1,6 +1,6 @@
 {
   "type": "minecraft:max",
-  "argument1": -0.2,
+  "argument1": -0.46,
   "argument2": {
     "type": "minecraft:add",
     "argument1": {

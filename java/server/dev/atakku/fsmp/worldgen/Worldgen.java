@@ -2,7 +2,7 @@
 //
 // This project is dual licensed under MIT and Apache.
 
-package rs.neko.smp.worldgen;
+package dev.atakku.fsmp.worldgen;
 
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,17 +13,17 @@ import net.minecraft.world.gen.densityfunction.DensityFunction;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rs.neko.smp.worldgen.func.Distance;
-import rs.neko.smp.worldgen.func.XAddZ;
-import rs.neko.smp.worldgen.func.XSubZ;
+import dev.atakku.fsmp.worldgen.func.Distance;
+import dev.atakku.fsmp.worldgen.func.XAddZ;
+import dev.atakku.fsmp.worldgen.func.XSubZ;
 
 public class Worldgen implements ModInitializer {
-  public static final String MOD_ID = "nsmp-worldgen";
+  public static final String MOD_ID = "fsmp-worldgen";
   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
   @Override
   public void onInitialize() {
-    LOGGER.info("Initializing NSMP Worldgen");
+    LOGGER.info("Initializing FSMP Worldgen");
     reg("distance", Distance.CODEC_HOLDER);
     reg("x_add_z", XAddZ.CODEC_HOLDER);
     reg("x_sub_z", XSubZ.CODEC_HOLDER);

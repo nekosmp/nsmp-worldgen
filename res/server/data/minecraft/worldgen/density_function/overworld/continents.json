@@ -19,7 +19,7 @@
               "type": "minecraft:mul",
               "argument1": -0.0005,
               "argument2": {
-                "type": "nsmp-worldgen:distance"
+                "type": "fsmp-worldgen:distance"
               }
             }
           }

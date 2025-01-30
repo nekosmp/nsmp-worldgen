@@ -22,8 +22,8 @@ abstract class MixRatioAbstract implements DensityFunction.Base {
     }
     int point = Math.max(absX, absZ) - START;
     double r = ((double) point / (double) SIZE);
-    double eased_ratio = 1 - (1 - r) * (1 - r) * (1 - r);
-    double ratio = eased_ratio * NEG_RATIO;
+    double eased = r < 0.5 ? 4 * r * r * r : 1 - Math.pow(-2 * r + 2, 3) / 2;
+    double ratio = eased * NEG_RATIO;
     if (neg) {
       return NEG_RATIO - ratio;
     }

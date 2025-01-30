@@ -12,14 +12,28 @@ import com.mojang.serialization.MapCodec;
 import dev.atakku.fsmp.worldgen.Worldgen;
 
 public class ContinentalnessMap implements DensityFunction.Base {
-  public static final CodecHolder<ContinentalnessMap> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(ContinentalnessMap::new));
+  public static final CodecHolder<ContinentalnessMap> CODEC_HOLDER = CodecHolder
+      .of(MapCodec.unit(ContinentalnessMap::new));
 
   @Override
   public double sample(DensityFunction.NoisePos pos) {
-    // 7680 -> 8192
-    int x = Math.max(Math.min(pos.blockX() + 8192, 16383), 0) / 4;
-    int z = Math.max(Math.min(pos.blockZ() + 8192, 16383), 0) / 4;
-    double amplitude = (Worldgen.CONTINENTALNESS_MAP[x+z*4096] & 0xFF) / 255.0d;
+    int x = pos.blockX();
+    int z = pos.blockZ();
+    return (sample(x - 1, z - 1) +
+        sample(x - 1, z) +
+        sample(x - 1, z + 1) +
+        sample(x, z - 1) +
+        sample(x, z) +
+        sample(x, z + 1) +
+        sample(x + 1, z - 1) +
+        sample(x + 1, z) +
+        sample(x + 1, z + 1)) / 9.0;
+  }
+
+  public static final double sample(int bx, int bz) {
+    int x = Math.max(Math.min(bx + 8192, 16383), 0) / 4;
+    int z = Math.max(Math.min(bz + 8192, 16383), 0) / 4;
+    double amplitude = (Worldgen.CONTINENTALNESS_MAP[x + z * 4096] & 0xFF) / 255.0d;
     return amplitude * 2.0d - 1.0d;
   }
 

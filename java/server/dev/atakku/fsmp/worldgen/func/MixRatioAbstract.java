@@ -11,7 +11,7 @@ abstract class MixRatioAbstract implements DensityFunction.Base {
   private static final int END = 8192;
   private static final int START = END - SIZE;
 
-  private static final double POS_RATIO = 0.75;
+  private static final double POS_RATIO = 0.4;
   private static final double NEG_RATIO = 1.0 - POS_RATIO;
 
   protected static double sample(DensityFunction.NoisePos pos, boolean neg) {

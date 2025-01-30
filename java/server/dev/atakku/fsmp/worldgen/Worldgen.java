@@ -52,8 +52,8 @@ public class Worldgen implements ModInitializer {
     reg("x_add_z", XAddZ.CODEC_HOLDER);
     reg("x_sub_z", XSubZ.CODEC_HOLDER);
 
-    reg("mix_ratio_negative", MixRatioNegative.CODEC_HOLDER);
-    reg("mix_ratio_positive", MixRatioPositive.CODEC_HOLDER);
+    reg("edge_ratio_neg", EdgeRatioNeg.CODEC_HOLDER);
+    reg("edge_ratio_pos", EdgeRatioPos.CODEC_HOLDER);
   }
 
   private void reg(String name, CodecHolder<? extends DensityFunction> c) {

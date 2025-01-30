@@ -9,12 +9,12 @@ import net.minecraft.world.gen.densityfunction.DensityFunction;
 
 import com.mojang.serialization.MapCodec;
 
-public class MixRatioPositive extends MixRatioAbstract {
-  public static final CodecHolder<MixRatioPositive> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(MixRatioPositive::new));
+public class EdgeRatioNeg extends EdgeRatioAbstract {
+  public static final CodecHolder<EdgeRatioNeg> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(EdgeRatioNeg::new));
 
   @Override
   public double sample(DensityFunction.NoisePos pos) {
-    return sample(pos, false);
+    return sample(pos, true);
   }
 
   @Override

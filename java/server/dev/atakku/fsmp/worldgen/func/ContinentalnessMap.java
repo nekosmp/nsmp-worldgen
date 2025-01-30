@@ -9,12 +9,16 @@ import net.minecraft.world.gen.densityfunction.DensityFunction;
 
 import com.mojang.serialization.MapCodec;
 
-public class Distance implements DensityFunction.Base {
-  public static final CodecHolder<Distance> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(Distance::new));
+import dev.atakku.fsmp.worldgen.Worldgen;
+
+public class ContinentalnessMap implements DensityFunction.Base {
+  public static final CodecHolder<ContinentalnessMap> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(ContinentalnessMap::new));
 
   @Override
   public double sample(DensityFunction.NoisePos pos) {
-    return Math.sqrt(pos.blockX() * pos.blockX() + pos.blockZ() * pos.blockZ());
+    int x = Math.max(Math.min(pos.blockX() + 8192, 16383), 0) / 4;
+    int z = Math.max(Math.min(pos.blockZ() + 8192, 16383), 0) / 4;
+    return (Worldgen.CONTINENTALNESS_MAP[x+z*4096] & 0xFF)/256.0;
   }
 
   @Override

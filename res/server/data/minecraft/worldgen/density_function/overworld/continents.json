@@ -5,12 +5,16 @@
     "type": "minecraft:add",
     "argument1": {
       "type": "minecraft:mul",
-      "argument1": "fsmp-worldgen:edge_ratio_pos",
+      "argument1": {
+        "type": "fsmp-worldgen:edge_ratio_pos"
+      },
       "argument2": -0.46
     },
     "argument2": {
       "type": "minecraft:mul",
-      "argument1": "fsmp-worldgen:edge_ratio_neg",
+      "argument1": {
+        "type": "fsmp-worldgen:edge_ratio_neg"
+      },
       "argument2": {
         "type": "minecraft:add",
         "argument1": {

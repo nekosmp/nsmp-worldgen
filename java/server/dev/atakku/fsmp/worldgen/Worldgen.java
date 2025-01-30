@@ -1,4 +1,4 @@
-// Copyright 2024 Atakku <https://atakku.dev>
+// Copyright 2025 Atakku <https://atakku.dev>
 //
 // This project is dual licensed under MIT and Apache.
 
@@ -51,6 +51,9 @@ public class Worldgen implements ModInitializer {
     reg("continentalness_map", ContinentalnessMap.CODEC_HOLDER);
     reg("x_add_z", XAddZ.CODEC_HOLDER);
     reg("x_sub_z", XSubZ.CODEC_HOLDER);
+
+    reg("mix_ratio_negative", MixRatioNegative.CODEC_HOLDER);
+    reg("mix_ratio_positive", MixRatioPositive.CODEC_HOLDER);
   }
 
   private void reg(String name, CodecHolder<? extends DensityFunction> c) {

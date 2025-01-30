@@ -5,7 +5,9 @@
     "type": "minecraft:add",
     "argument1": {
       "type": "minecraft:mul",
-      "argument1": 0.5,
+      "argument1": {
+        "type": "fsmp-worldgen:mix_ratio_positive"
+      },
       "argument2": {
         "type": "minecraft:add",
         "argument1": -1.0,
@@ -20,7 +22,9 @@
     },
     "argument2": {
       "type": "minecraft:mul",
-      "argument1": 0.5,
+      "argument1": {
+        "type": "fsmp-worldgen:mix_ratio_negative"
+      },
       "argument2": {
         "type": "minecraft:flat_cache",
         "argument": {

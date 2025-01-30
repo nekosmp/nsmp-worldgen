@@ -9,22 +9,12 @@ import net.minecraft.world.gen.densityfunction.DensityFunction;
 
 import com.mojang.serialization.MapCodec;
 
-public class XAddZ implements DensityFunction.Base {
-  public static final CodecHolder<XAddZ> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(XAddZ::new));
+public class MixRatioNegative extends MixRatioAbstract {
+  public static final CodecHolder<MixRatioNegative> CODEC_HOLDER = CodecHolder.of(MapCodec.unit(MixRatioNegative::new));
 
   @Override
   public double sample(DensityFunction.NoisePos pos) {
-    return pos.blockX() + pos.blockZ();
-  }
-
-  @Override
-  public double minValue() {
-    return -Double.MAX_VALUE;
-  }
-
-  @Override
-  public double maxValue() {
-    return Double.MAX_VALUE;
+    return sample(pos, true);
   }
 
   @Override

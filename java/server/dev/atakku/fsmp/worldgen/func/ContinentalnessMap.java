@@ -1,4 +1,4 @@
-// Copyright 2024 Atakku <https://atakku.dev>
+// Copyright 2025 Atakku <https://atakku.dev>
 //
 // This project is dual licensed under MIT and Apache.
 
@@ -16,9 +16,10 @@ public class ContinentalnessMap implements DensityFunction.Base {
 
   @Override
   public double sample(DensityFunction.NoisePos pos) {
+    // 7680 -> 8192
     int x = Math.max(Math.min(pos.blockX() + 8192, 16383), 0) / 4;
     int z = Math.max(Math.min(pos.blockZ() + 8192, 16383), 0) / 4;
-    return (Worldgen.CONTINENTALNESS_MAP[x+z*4096] & 0xFF)/256.0;
+    return (Worldgen.CONTINENTALNESS_MAP[x+z*4096] & 0xFF)/256.0d;
   }
 
   @Override

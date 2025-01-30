@@ -9,15 +9,7 @@
         "type": "fsmp-worldgen:mix_ratio_positive"
       },
       "argument2": {
-        "type": "minecraft:add",
-        "argument1": -1,
-        "argument2": {
-          "type": "minecraft:mul",
-          "argument1": 2,
-          "argument2": {
-            "type": "fsmp-worldgen:continentalness_map"
-          }
-        }
+        "type": "fsmp-worldgen:continentalness_map"
       }
     },
     "argument2": {

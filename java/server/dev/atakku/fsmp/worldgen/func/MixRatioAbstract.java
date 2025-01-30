@@ -11,6 +11,9 @@ abstract class MixRatioAbstract implements DensityFunction.Base {
   private static final int END = 8192;
   private static final int START = END - SIZE;
 
+  private static final double POS_RATIO = 0.75;
+  private static final double NEG_RATIO = 1.0 - POS_RATIO;
+
   protected static double sample(DensityFunction.NoisePos pos, boolean neg) {
     int absX = Math.min(Math.abs(pos.blockX()), END);
     int absZ = Math.min(Math.abs(pos.blockZ()), END);
@@ -18,11 +21,11 @@ abstract class MixRatioAbstract implements DensityFunction.Base {
       return 0.5d;
     }
     int point = Math.max(absX, absZ) - START;
-    double ratio = (double) point / (double) SIZE;
+    double ratio = ((double) point / (double) SIZE) * NEG_RATIO;
     if (neg) {
-      return 0.5d - 0.5d * ratio;
+      return NEG_RATIO - ratio;
     }
-    return 0.5d + 0.5d * ratio;
+    return POS_RATIO + ratio;
   }
 
   @Override

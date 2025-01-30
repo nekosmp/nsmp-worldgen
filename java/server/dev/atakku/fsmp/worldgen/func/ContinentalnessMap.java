@@ -20,8 +20,7 @@ public class ContinentalnessMap implements DensityFunction.Base {
     int x = Math.max(Math.min(pos.blockX() + 8192, 16383), 0) / 4;
     int z = Math.max(Math.min(pos.blockZ() + 8192, 16383), 0) / 4;
     double amplitude = (Worldgen.CONTINENTALNESS_MAP[x+z*4096] & 0xFF) / 255.0d;
-    double r = amplitude * 2.0d - 1.0d; // 0 - 1 to -1 - 1;
-    return Math.max(Math.min(r * r * r, 1), -1);
+    return amplitude * 2.0d - 1.0d;
   }
 
   @Override

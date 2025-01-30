@@ -18,7 +18,10 @@ abstract class MixRatioAbstract implements DensityFunction.Base {
     int absX = Math.min(Math.abs(pos.blockX()), END);
     int absZ = Math.min(Math.abs(pos.blockZ()), END);
     if (absX < START && absZ < START) {
-      return 0.5d;
+      if (neg) {
+        return NEG_RATIO;
+      }
+      return POS_RATIO;
     }
     int point = Math.max(absX, absZ) - START;
     double r = ((double) point / (double) SIZE);
